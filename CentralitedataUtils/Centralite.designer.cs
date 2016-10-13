@@ -54,7 +54,7 @@ namespace CentraliteData
     #endregion
 		
 		public CentraliteDataContext() : 
-				base(global::CentraliteDataUtils.Properties.Settings.Default.ManufacturingStore_RADConnectionString, mappingSource)
+				base(global::CentraliteDataUtils.Properties.Settings.Default.DBConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
