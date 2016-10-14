@@ -54,6 +54,9 @@ namespace CentraliteData
     partial void InsertBoardProcess(BoardProcess instance);
     partial void UpdateBoardProcess(BoardProcess instance);
     partial void DeleteBoardProcess(BoardProcess instance);
+    partial void InsertBoardTracker(BoardTracker instance);
+    partial void UpdateBoardTracker(BoardTracker instance);
+    partial void DeleteBoardTracker(BoardTracker instance);
     #endregion
 		
 		public CentraliteDataContext() : 
@@ -147,6 +150,14 @@ namespace CentraliteData
 			get
 			{
 				return this.GetTable<BoardProcess>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BoardTracker> BoardTrackers
+		{
+			get
+			{
+				return this.GetTable<BoardTracker>();
 			}
 		}
 	}
@@ -1645,6 +1656,8 @@ namespace CentraliteData
 		
 		private string _Name;
 		
+		private EntitySet<BoardTracker> _BoardTrackers;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1657,6 +1670,7 @@ namespace CentraliteData
 		
 		public BoardProcess()
 		{
+			this._BoardTrackers = new EntitySet<BoardTracker>(new Action<BoardTracker>(this.attach_BoardTrackers), new Action<BoardTracker>(this.detach_BoardTrackers));
 			OnCreated();
 		}
 		
@@ -1696,6 +1710,278 @@ namespace CentraliteData
 					this._Name = value;
 					this.SendPropertyChanged("Name");
 					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BoardProcess_BoardTracker", Storage="_BoardTrackers", ThisKey="Id", OtherKey="BoardProcessId")]
+		public EntitySet<BoardTracker> BoardTrackers
+		{
+			get
+			{
+				return this._BoardTrackers;
+			}
+			set
+			{
+				this._BoardTrackers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BoardTrackers(BoardTracker entity)
+		{
+			this.SendPropertyChanging();
+			entity.BoardProcess = this;
+		}
+		
+		private void detach_BoardTrackers(BoardTracker entity)
+		{
+			this.SendPropertyChanging();
+			entity.BoardProcess = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BoardTracker")]
+	public partial class BoardTracker : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _BoardProcessId;
+		
+		private int _ProductId;
+		
+		private short _Week;
+		
+		private short _Year;
+		
+		private int _Number;
+		
+		private System.DateTime _DateTimeStamp;
+		
+		private EntityRef<BoardProcess> _BoardProcess;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnBoardProcessIdChanging(int value);
+    partial void OnBoardProcessIdChanged();
+    partial void OnProductIdChanging(int value);
+    partial void OnProductIdChanged();
+    partial void OnWeekChanging(short value);
+    partial void OnWeekChanged();
+    partial void OnYearChanging(short value);
+    partial void OnYearChanged();
+    partial void OnNumberChanging(int value);
+    partial void OnNumberChanged();
+    partial void OnDateTimeStampChanging(System.DateTime value);
+    partial void OnDateTimeStampChanged();
+    #endregion
+		
+		public BoardTracker()
+		{
+			this._BoardProcess = default(EntityRef<BoardProcess>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BoardProcessId", DbType="Int NOT NULL")]
+		public int BoardProcessId
+		{
+			get
+			{
+				return this._BoardProcessId;
+			}
+			set
+			{
+				if ((this._BoardProcessId != value))
+				{
+					if (this._BoardProcess.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBoardProcessIdChanging(value);
+					this.SendPropertyChanging();
+					this._BoardProcessId = value;
+					this.SendPropertyChanged("BoardProcessId");
+					this.OnBoardProcessIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", DbType="Int NOT NULL")]
+		public int ProductId
+		{
+			get
+			{
+				return this._ProductId;
+			}
+			set
+			{
+				if ((this._ProductId != value))
+				{
+					this.OnProductIdChanging(value);
+					this.SendPropertyChanging();
+					this._ProductId = value;
+					this.SendPropertyChanged("ProductId");
+					this.OnProductIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Week", DbType="SmallInt NOT NULL")]
+		public short Week
+		{
+			get
+			{
+				return this._Week;
+			}
+			set
+			{
+				if ((this._Week != value))
+				{
+					this.OnWeekChanging(value);
+					this.SendPropertyChanging();
+					this._Week = value;
+					this.SendPropertyChanged("Week");
+					this.OnWeekChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="SmallInt NOT NULL")]
+		public short Year
+		{
+			get
+			{
+				return this._Year;
+			}
+			set
+			{
+				if ((this._Year != value))
+				{
+					this.OnYearChanging(value);
+					this.SendPropertyChanging();
+					this._Year = value;
+					this.SendPropertyChanged("Year");
+					this.OnYearChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int NOT NULL")]
+		public int Number
+		{
+			get
+			{
+				return this._Number;
+			}
+			set
+			{
+				if ((this._Number != value))
+				{
+					this.OnNumberChanging(value);
+					this.SendPropertyChanging();
+					this._Number = value;
+					this.SendPropertyChanged("Number");
+					this.OnNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTimeStamp", DbType="DateTime NOT NULL")]
+		public System.DateTime DateTimeStamp
+		{
+			get
+			{
+				return this._DateTimeStamp;
+			}
+			set
+			{
+				if ((this._DateTimeStamp != value))
+				{
+					this.OnDateTimeStampChanging(value);
+					this.SendPropertyChanging();
+					this._DateTimeStamp = value;
+					this.SendPropertyChanged("DateTimeStamp");
+					this.OnDateTimeStampChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BoardProcess_BoardTracker", Storage="_BoardProcess", ThisKey="BoardProcessId", OtherKey="Id", IsForeignKey=true)]
+		public BoardProcess BoardProcess
+		{
+			get
+			{
+				return this._BoardProcess.Entity;
+			}
+			set
+			{
+				BoardProcess previousValue = this._BoardProcess.Entity;
+				if (((previousValue != value) 
+							|| (this._BoardProcess.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BoardProcess.Entity = null;
+						previousValue.BoardTrackers.Remove(this);
+					}
+					this._BoardProcess.Entity = value;
+					if ((value != null))
+					{
+						value.BoardTrackers.Add(this);
+						this._BoardProcessId = value.Id;
+					}
+					else
+					{
+						this._BoardProcessId = default(int);
+					}
+					this.SendPropertyChanged("BoardProcess");
 				}
 			}
 		}
