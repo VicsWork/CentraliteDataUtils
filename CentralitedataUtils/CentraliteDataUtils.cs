@@ -18,6 +18,22 @@ namespace CentraliteDataUtils
 {
     public class DataUtils
     {
+        static string _db_connection_str = Properties.Settings.Default.DBConnectionString;
+        static public string DBConnStr { get { return _db_connection_str; } set { _db_connection_str = value; } }
+
+        /// <summary>
+        /// New data context from DBConStr
+        /// </summary>
+        static public CentraliteDataContext DataContext
+        {
+            get {return new CentraliteDataContext(DBConnStr);}
+        }
+
+        static CentraliteDataContext CentraliteDataContext()
+        {
+            return DataContext;
+        }
+
         // The site id is cached
         static int _site_id = -1;
         static public int Site_ID
@@ -29,7 +45,7 @@ namespace CentraliteDataUtils
                     try
                     {
                         string macaddr_str = MachineInfo.GetMacAndIpAddress().Item1;
-                        using (CentraliteDataContext dc = new CentraliteDataContext())
+                        using (CentraliteDataContext dc = DataContext)
                         {
                             _site_id = dc.StationSites.Where(d => d.StationMac == macaddr_str).Select(s => s.ProductionSiteId).Single<int>();
                         }
@@ -59,7 +75,7 @@ namespace CentraliteDataUtils
 
                             // Machine guid column was added after data had already been inserted
                             // Update data
-                            using (CentraliteDataContext dc = new CentraliteDataContext())
+                            using (CentraliteDataContext dc = DataContext)
                             {
                                 TestStationMachine machine = dc.TestStationMachines.Single<TestStationMachine>(m => m.Name == Environment.MachineName);
                                 _machine_id = machine.Id;
@@ -188,7 +204,7 @@ namespace CentraliteDataUtils
         /// <returns></returns>
         public static string[] GetISAAdapterIPsFromLikeLocation(string location)
         {
-            using (CentraliteDataContext dc = new CentraliteDataContext())
+            using (CentraliteDataContext dc = DataContext)
             {
                 var q = dc.InsightAdapters.Where(d => d.Location.Contains(location)).Select(d => d.IpAddress);
                 return q.ToArray<string>();
