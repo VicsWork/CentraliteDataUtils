@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ManufacturingStore_RAD" Class="CentraliteDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=rs01;Initial Catalog=ManufacturingStore_RAD;Integrated Security=True" SettingsObjectName="CentraliteDataUtils.Properties.Settings" SettingsPropertyName="ManufacturingStore_RADConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=rs01;Initial Catalog=ManufacturingStore_RAD;Integrated Security=True" SettingsObjectName="CentraliteDataUtils.Properties.Settings" SettingsPropertyName="DBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Product" Member="Products">
     <Type Name="Product">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -75,6 +75,12 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IpAddress" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="Location" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BoardProcess" Member="BoardProcesses">
+    <Type Name="BoardProcess">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
