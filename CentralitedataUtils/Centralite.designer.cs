@@ -22,7 +22,7 @@ namespace CentraliteData
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ManufacturingStore_v2")]
+	//[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ManufacturingStore_v2")]
 	public partial class CentraliteDataContext : System.Data.Linq.DataContext
 	{
 		
