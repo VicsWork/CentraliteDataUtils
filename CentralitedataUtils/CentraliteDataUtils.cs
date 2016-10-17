@@ -12,8 +12,6 @@ using System.Net.NetworkInformation;
 
 using Microsoft.Win32;
 
-using CentraliteData;
-
 namespace CentraliteDataUtils
 {
     public class DataUtils
@@ -29,7 +27,7 @@ namespace CentraliteDataUtils
             get {return new CentraliteDataContext(DBConnStr);}
         }
 
-        static CentraliteDataContext CentraliteDataContext()
+        static public CentraliteDataContext CentraliteDataContext()
         {
             return DataContext;
         }

@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CentraliteData
+namespace CentraliteDataUtils
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
