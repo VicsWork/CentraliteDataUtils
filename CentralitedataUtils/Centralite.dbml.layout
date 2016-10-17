@@ -26,7 +26,7 @@
         <elementListCompartment Id="cf395bd1-1929-4fa7-a127-470b9f198d6c" absoluteBounds="0.89000000000000012, 2.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.875 : 2.25); (1.875 : 1.69399251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.875 : 2.25); (1.875 : 1.69399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CentraliteDataContext/ProductionSite/ProductionSite_StationSite" />
       <nodes>
         <classShapeMoniker Id="b2e3c381-51ba-4f0b-a25e-4577fe2d3574" />
@@ -45,7 +45,7 @@
         <elementListCompartment Id="d683f0dd-8554-460e-8281-0498ff3404ea" absoluteBounds="0.76500000000000012, 5.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.8125 : 4.7901025390625); (1.8125 : 5.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.8125 : 4.7901025390625); (1.8125 : 5.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CentraliteDataContext/ProductionSite/ProductionSite_EuiList" />
       <nodes>
         <classShapeMoniker Id="b2e3c381-51ba-4f0b-a25e-4577fe2d3574" />
@@ -70,7 +70,7 @@
         <elementListCompartment Id="e24600ea-e830-4431-aa4e-81ac4359ad63" absoluteBounds="3.1399999999999997, 1.0850000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.125 : 3.125); (4.125 : 2.78049967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.125 : 3.125); (4.125 : 2.78049967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CentraliteDataContext/BoardProcess/BoardProcess_BoardTracker" />
       <nodes>
         <classShapeMoniker Id="47ae3795-1948-4342-97c6-5b7e785a642a" />

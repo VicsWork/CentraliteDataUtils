@@ -92,7 +92,7 @@
       <Column Name="Week" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="Year" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DateTimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateTimeStamp" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="BoardProcess_BoardTracker" Member="BoardProcess" ThisKey="BoardProcessId" OtherKey="Id" Type="BoardProcess" IsForeignKey="true" />
     </Type>
   </Table>

@@ -1932,7 +1932,7 @@ namespace CentraliteDataUtils
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTimeStamp", DbType="DateTime NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTimeStamp", DbType="DateTime NOT NULL", IsDbGenerated=true)]
 		public System.DateTime DateTimeStamp
 		{
 			get
