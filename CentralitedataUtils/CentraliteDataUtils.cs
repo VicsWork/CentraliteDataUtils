@@ -169,7 +169,7 @@ namespace CentraliteDataUtils
         /// <returns>EUI ID</returns>
         public static int GetEUIID(string eui)
         {
-            int id = -1;
+            int id = 6;
             using (CentraliteDataContext dc = new CentraliteDataContext())
             {
 
@@ -178,18 +178,18 @@ namespace CentraliteDataUtils
                 {
                     id = q.Single<int>();
                 }
-                else
-                {
-                    EuiList euid = new EuiList();
-                    euid.EUI = eui;
-                    euid.ProductionSiteId = Site_ID;
+                //else
+                //{
+                //    EuiList euid = new EuiList();
+                //    euid.EUI = eui;
+                //    euid.ProductionSiteId = Site_ID;
 
-                    dc.EuiLists.InsertOnSubmit(euid);
-                    dc.SubmitChanges();
-                    dc.Dispose();
+                //    dc.EuiLists.InsertOnSubmit(euid);
+                //    dc.SubmitChanges();
+                //    dc.Dispose();
 
-                    id = euid.Id;
-                }
+                //    id = euid.Id;
+                //}
 
             }
             return id;
