@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ManufacturingStore_RAD" Class="CentraliteDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ManufacturingStore_v2" Class="CentraliteDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=rs01;Initial Catalog=ManufacturingStore_RAD;Integrated Security=True" SettingsObjectName="CentraliteDataUtils.Properties.Settings" SettingsPropertyName="DBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Product" Member="Products">
     <Type Name="Product">
